@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>beardcore | Roblox GUI Maker</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      scroll-behavior:smooth;
+    }
+
+    :root{
+      --bg:#000000;
+      --card:#0a0a0a;
+      --text:#ffffff;
+      --sub:#7a7a7a;
+      --blue:#4ea1ff;
+      --border:#171717;
+    }
+
+    body{
+      font-family:'Poppins',sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+
+    .container{
+      width:90%;
+      max-width:1250px;
+      margin:auto;
+    }
+
+    nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:30px 0;
+    }
+
+    .logo{
+      font-size:30px;
+      font-weight:800;
+      color:var(--blue);
+    }
+
+    nav ul{
+      display:flex;
+      gap:25px;
+      list-style:none;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      transition:0.3s;
+      font-weight:500;
+    }
+
+    nav a:hover{
+      color:var(--blue);
+    }
+
+    .hero{
+      min-height:90vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
+
+    .hero-content h1{
+      font-size:95px;
+      line-height:1;
+      margin-bottom:20px;
+      font-weight:800;
+    }
+
+    .hero-content span{
+      color:var(--blue);
+    }
+
+    .subtitle{
+      max-width:800px;
+      margin:auto;
+      color:var(--sub);
+      line-height:1.9;
+      font-size:18px;
+    }
+
+    .discord{
+      margin-top:18px;
+      color:#5d5d5d;
+      font-size:15px;
+    }
+
+    .buttons{
+      margin-top:40px;
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:16px 32px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn-primary{
+      background:var(--blue);
+      color:white;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-5px);
+    }
+
+    .btn-secondary{
+      border:1px solid var(--border);
+      background:var(--card);
+      color:white;
+    }
+
+    .btn-secondary:hover{
+      border-color:var(--blue);
+    }
+
+    section{
+      padding:100px 0;
+    }
+
+    .section-title{
+      text-align:center;
+      font-size:48px;
+      margin-bottom:70px;
+    }
+
+    .stats{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .stat{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;
+      padding:45px;
+      text-align:center;
+      transition:0.3s;
+    }
+
+    .stat:hover{
+      transform:translateY(-8px);
+      border-color:var(--blue);
+    }
+
+    .stat h2{
+      font-size:55px;
+      color:var(--blue);
+    }
+
+    .stat p{
+      margin-top:10px;
+      color:var(--sub);
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+      gap:35px;
+    }
+
+    .card{
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:24px;
+      overflow:hidden;
+      transition:0.4s;
+    }
+
+    .card:hover{
+      transform:translateY(-10px);
+      border-color:var(--blue);
+    }
+
+    .card img{
+      width:100%;
+      height:240px;
+      object-fit:cover;
+    }
+
+    .card-content{
+      padding:25px;
+    }
+
+    .card-content h3{
+      font-size:28px;
+      margin-bottom:10px;
+    }
+
+    .card-content p{
+      color:var(--sub);
+      line-height:1.8;
+    }
+
+    .skills{
+      display:flex;
+      justify-content:center;
+      gap:20px;
+      flex-wrap:wrap;
+    }
+
+    .skill{
+      background:var(--card);
+      border:1px solid var(--border);
+      padding:18px 30px;
+      border-radius:15px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .skill:hover{
+      transform:scale(1.08);
+      border-color:var(--blue);
+    }
+
+    footer{
+      text-align:center;
+      padding:40px 0;
+      border-top:1px solid var(--border);
+      color:var(--sub);
+    }
+
+    @media(max-width:768px){
+
+      .hero-content h1{
+        font-size:58px;
+      }
+
+      nav{
+        flex-direction:column;
+        gap:20px;
+      }
+
+      nav ul{
+        flex-wrap:wrap;
+        justify-content:center;
+      }
+
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <nav>
+
+      <div class="logo">beardcore</div>
+
+      <ul>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#stats">Info</a></li>
+      </ul>
+
+    </nav>
+
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <h1 class="title">
+          Roblox <span>GUI</span><br>
+          Maker
+        </h1>
+
+        <p class="subtitle">
+          GUI Maker spécialisé dans les interfaces Roblox modernes et stylisées.
+          Contribution à plusieurs projets totalisant plus de 1M+ de visites.
+          French & English speaker.
+          Disponible pour commissions et projets payants.
+        </p>
+
+        <p class="discord">
+          Discord : ʙᴇᴀʀᴅᴄᴏʀᴇ
+        </p>
+
+        <div class="buttons">
+
+          <a href="https://guns.lol/beard.core" target="_blank" class="btn btn-primary">
+            gun.lol
+          </a>
+
+          <a href="https://discord.com" target="_blank" class="btn btn-secondary">
+            Contact Discord
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="stats">
+
+      <h2 class="section-title reveal">
+        Info
+      </h2>
+
+      <div class="stats">
+
+        <div class="stat reveal">
+          <h2 class="counter">1M+</h2>
+          <p>Visits generated</p>
+        </div>
+
+        <div class="stat reveal">
+          <h2>3000R$</h2>
+          <p>Monthly price</p>
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="projects">
+
+      <h2 class="section-title reveal">
+        Projects
+      </h2>
+
+      <div class="cards">
+
+        <div class="card reveal">
+
+          <img src="images/fusemachine.png">
+
+          <div class="card-content">
+            <h3>Fuse Machine</h3>
+
+            <p>
+              Modern fusion interface with styled probability system.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="card reveal">
+
+          <img src="images/crates.png">
+
+          <div class="card-content">
+            <h3>Wizard Crates</h3>
+
+            <p>
+              Fantasy crate opening interface with premium animations.
+            </p>
+
+          </div>
+
+        </div>
+
+        <div class="card reveal">
+
+          <img src="images/potions.png">
+
+          <div class="card-content">
+            <h3>Potion Seller</h3>
+
+            <p>
+              Stylized potion shop with dynamic refresh timer.
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section id="skills">
+
+      <h2 class="section-title reveal">
+        Skills
+      </h2>
+
+      <div class="skills">
+
+        <div class="skill reveal">GUI Design</div>
+        <div class="skill reveal">UI Animation</div>
+        <div class="skill reveal">Roblox Studio</div>
+        <div class="skill reveal">Photoshop</div>
+        <div class="skill reveal">Visual Studio Code</div>
+        <div class="skill reveal">Interface Effects</div>
+
+      </div>
+
+    </section>
+
+    <footer>
+      © 2022 beardcore
+    </footer>
+
+  </div>
+
+  <script>
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.from(".title",{
+      y:100,
+      opacity:0,
+      duration:1.2
+    });
+
+    gsap.from(".subtitle",{
+      y:40,
+      opacity:0,
+      delay:0.3,
+      duration:1
+    });
+
+    gsap.from(".btn",{
+      y:30,
+      opacity:0,
+      delay:0.5,
+      stagger:0.2,
+      duration:1
+    });
+
+    gsap.utils.toArray(".reveal").forEach((el)=>{
+
+      gsap.from(el,{
+        scrollTrigger:{
+          trigger:el,
+          start:"top 85%"
+        },
+        y:80,
+        opacity:0,
+        duration:1
+      });
+
+    });
+
+  </script>
+
+</body>
+</html>
