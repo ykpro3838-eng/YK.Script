@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yanni.dev | Roblox LUA Dev</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing:border-box; margin:0; padding:0; scroll-behavior:smooth; }
+body { font-family:'Inter',sans-serif; background:#0d0d0d; color:#fff; line-height:1.6; }
+a { text-decoration:none; color:inherit; }
+nav { position:fixed; top:0; width:100%; background:#111; display:flex; justify-content:center; z-index:1000; }
+nav ul { list-style:none; display:flex; gap:20px; padding:10px 0; }
+nav ul li a { color:#fff; padding:8px 12px; border-radius:6px; transition:0.3s; }
+nav ul li a:hover { background:#4da3ff; }
+header { min-height:100vh; display:flex; justify-content:center; align-items:center; text-align:center; padding:40px; }
+header h1 { font-size:3rem; margin-bottom:10px; }
+header span { color:#4da3ff; }
+header p { opacity:0.8; margin-bottom:20px; }
+header .buttons a { margin:5px; padding:10px 20px; border:1px solid #333; border-radius:8px; display:inline-block; transition:0.3s; }
+header .buttons a:hover { background:#4da3ff; }
+section { max-width:1000px; margin:auto; padding:100px 20px; }
+h2 { margin-bottom:20px; text-align:center; }
+.skills { display:flex; flex-wrap:wrap; justify-content:center; gap:10px; margin-top:20px; }
+.skill { border:1px solid #333; padding:8px 12px; border-radius:6px; }
+.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+.project { border:1px solid #333; border-radius:10px; overflow:hidden; }
+.project img { width:100%; height:160px; object-fit:cover; }
+.project div { padding:15px; font-size:0.9rem; opacity:0.85; }
+pre { background:#000; color:#f8f8f8; padding:15px; border-radius:10px; overflow-x:auto; font-size:0.85rem; }
+footer { text-align:center; padding:30px 20px; opacity:0.6; }
+@media(max-width:600px){header h1{font-size:2.2rem;} nav ul {flex-direction:column; gap:10px;}}
+</style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav>
+  <ul>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#skills">Spécialités</a></li>
+    <li><a href="#projects">Projets</a></li>
+    <li><a href="#code">Code LUA</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header>
+  <div>
+    <h1>Yanni.dev <span>Roblox LUA Dev</span></h1>
+    <p>Scripts • UI • Systems • Roblox Studio</p>
+    <div class="buttons">
+      <a href="https://www.roblox.com/share?code=2e2ef741e9ad494aa948b3c3f44b71f7&type=Profile&source=ProfileShare&stamp=1766692910321" target="_blank">Roblox</a>
+      <a href="https://discord.gg/vScGxfWN" target="_blank">Discord</a>
+    </div>
+  </div>
+</header>
+
+<!-- À PROPOS -->
+<section id="about">
+  <h2>À propos</h2>
+  <p>Je suis un développeur Roblox spécialisé en LUA. Je crée des systèmes performants : Admin Panel, Money System, UI, RemoteEvents et plus encore.</p>
+</section>
+
+<!-- SPÉCIALITÉS -->
+<section id="skills">
+  <h2>Mes spécialités</h2>
+  <div class="skills">
+    <div class="skill">LUA</div>
+    <div class="skill">UI / ScreenGui</div>
+    <div class="skill">Admin Panel</div>
+    <div class="skill">DataStore</div>
+    <div class="skill">Money System</div>
+    <div class="skill">RemoteEvents</div>
+  </div>
+</section>
+
+<!-- PROJETS / PHOTOS -->
+<section id="projects">
+  <h2>Projets & Screenshots</h2>
+  <div class="projects">
+    <div class="project">
+      <img src="images/admin_panel.png" alt="Admin Panel">
+      <div>Admin Panel - Commandes et interface GUI</div>
+    </div>
+    <div class="project">
+      <img src="images/money_system.png" alt="Money System">
+      <div>Money System - Sauvegarde avec DataStore</div>
+    </div>
+    <div class="project">
+      <img src="images/player_menu.png" alt="Player Menu">
+      <div>Player Menu - Liste des joueurs et fonctionnalités</div>
+    </div>
+  </div>
+</section>
+
+<!-- CODE LUA -->
+<section id="code">
+  <h2>Exemple de code LUA</h2>
+  <pre>
+local Players = game:GetService("Players")
+
+Players.PlayerAdded:Connect(function(player)
+    print(player.Name .. " a rejoint le jeu")
+end)
+  </pre>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <p>Discord : <a href="https://discord.gg/vScGxfWN" target="_blank">Ton Discord</a><br>
+  Roblox : <a href="https://www.roblox.com/share?code=2e2ef741e9ad494aa948b3c3f44b71f7&type=Profile&source=ProfileShare&stamp=1766692910321" target="_blank">Yanni.dev</a></p>
+</section>
+
+<footer>
+  © 2026 – Yanni.dev Roblox LUA Dev
+</footer>
+
+</body>
+</html>
+
